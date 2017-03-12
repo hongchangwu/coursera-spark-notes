@@ -27,3 +27,14 @@ between machines, network in between, operated upon in parallel.
 
 Spark implements a distributed data parallel model called **Resilient
 Distributed Datasets (RDDs)**
+
+## Latency
+
+- Reading/writing to disk: **100x slower** than in-memory
+- Network communication: **1,000,000x slower** than in-memory
+
+Why Spark?
+- Retains fault-tolerance
+- Different strategy for handling latency
+
+**Idea:** Keep all data **immutable and in-memory**.
