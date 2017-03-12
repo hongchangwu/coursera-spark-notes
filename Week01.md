@@ -38,3 +38,20 @@ Why Spark?
 - Different strategy for handling latency
 
 **Idea:** Keep all data **immutable and in-memory**.
+
+## RDDs
+
+Word Count
+
+```scala
+// Create an RDD
+val rdd = spark.textFile("hdfs://...")
+
+val count = rdd.flatMap(line => line.split(" ")) // separate line into words
+               .map(word => (word, 1))           // include something to count
+               .reduceByKey(_ + _)               // sum up
+```
+
+RDDs can be created in two ways:
+- Transforming an existing RDD.
+- From a `SparkContext` (or `SparkSession`) object.
