@@ -41,7 +41,7 @@ Why Spark?
 
 ## RDDs
 
-Word Count
+### Word Count
 
 ```scala
 // Create an RDD
@@ -55,3 +55,29 @@ val count = rdd.flatMap(line => line.split(" ")) // separate line into words
 RDDs can be created in two ways:
 - Transforming an existing RDD.
 - From a `SparkContext` (or `SparkSession`) object.
+
+### Transformations and Actions
+
+- **Transformations.** Return new RDDs as result -  ***Lazy***
+- **Actions.** Compute a result based on an RDD, and either returned or saved
+  to an external storage system (e.g. HDFS) - ***Eager***
+
+**Laziness/eagerness** is how Spark limits network communications using the
+programming model.
+
+## Evaluation
+
+By default, RDDs are recomputed each time you run an action on them. But Spark
+allows you to contorl what is cached in memory -  use `persist()` or `cache()`.
+
+**cache**
+Shorthand for using the default storage level, which is in memory only as
+regular Java objects.
+
+**persist**
+Persistence can be customized with this method. Pass the storage level you
+like as a parameter.
+
+**Key takeaway:**
+Despite similar-looking API to Scala Collections, the deferred semantics of
+Spark's RDDs are very unlike Scala Collections.
