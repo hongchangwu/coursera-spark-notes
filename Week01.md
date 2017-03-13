@@ -81,3 +81,13 @@ like as a parameter.
 **Key takeaway:**
 Despite similar-looking API to Scala Collections, the deferred semantics of
 Spark's RDDs are very unlike Scala Collections.
+
+## Topology
+
+**Driver Program**
+Runs the main program. Holds the Spark Context. Creates RDDs.
+
+**Worker Node**
+Executes the actual computations.
+
+They communicate with each other via a Cluster Manager (e.g. YARN/Meoss).
