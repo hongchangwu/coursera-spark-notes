@@ -90,4 +90,4 @@ Runs the main program. Holds the Spark Context. Creates RDDs.
 **Worker Node**
 Executes the actual computations.
 
-They communicate with each other via a Cluster Manager (e.g. YARN/Meoss).
+They communicate with each other via a Cluster Manager (e.g. YARN/Meos).
