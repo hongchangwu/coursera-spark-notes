@@ -22,3 +22,16 @@ val rdd: RDD[WikipediaPage] = ...
 // Has type: RDD[(String, String)]
 val pairRdd = rdd.map(page => (page.title, page.text))
 ```
+
+## Transformations and Actions on Pair RDDs
+
+**Transformations**
+- `groupByKey`
+- `reduceByKey`
+- `mapValues`
+- `keys`
+- `joins`
+- `leftOuterJoin/rightOuterJoin`
+
+**Actions**
+- `countByKey`
