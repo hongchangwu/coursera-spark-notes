@@ -35,3 +35,8 @@ val pairRdd = rdd.map(page => (page.title, page.text))
 
 **Actions**
 - `countByKey`
+
+## Joins
+
+- Inner joins (`join`)
+- Outer joins (`leftOuterJoin/rightOuterJoin`)
