@@ -58,3 +58,14 @@ each individual customer over the course of the month.
 **Two kinds of partitioning available in Spark:**
 - Hash partitioning
 - Range partitioning
+
+##  Hash partitioning
+
+Hash partitioning attempts to spread data evenly across partitions _based on
+the key._
+
+For example, `groupByKey` first computes per tuple `(k, v)` its partition `p`:
+
+```scala
+p = k.hashCode() % numPartitions
+```
