@@ -206,7 +206,7 @@ RDDs are represented as:
 - **Dependencies**. Models relationship between this RDD and its partitions
   with the RDD(s) it was derived from.
 
-**Transformations cause shuffled**. Transformations can have two kinds of
+**Transformations cause shuffles**. Transformations can have two kinds of
 dependencies:
 
 1. Narrow Dependencies
