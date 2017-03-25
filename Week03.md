@@ -252,3 +252,15 @@ dependencies:
 - `intersection`
 - `repartition`
 - `coalesce`
+
+### Find out the actual dependencies
+
+Use **dependencies** method on RDDs.
+
+**Narrow dependency objects:**
+- `OneToOneDependency`
+- `PruneDependency`
+- `RangeDependency`
+
+**Wide dependency objects:**
+- `ShuffleDependency`
