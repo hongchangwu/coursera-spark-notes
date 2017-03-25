@@ -139,7 +139,7 @@ that it does not involve any shufflign over the network at all!
   val pairs = purchasesRdd.map(p => (p.customerId, p.price))
   val tunedPartitioner = new RangePartitioner(8, pairs)
 
-  va. partitioned = pairs.partitionBy(tunedPartitioner)
+  val partitioned = pairs.partitionBy(tunedPartitioner)
                          .persist()
                          
   val purchasesPerCust =
