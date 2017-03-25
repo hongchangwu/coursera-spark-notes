@@ -111,7 +111,7 @@ Two ways to create RDDs with specific partitionings:
    - When using `sortByKey`, a `RangePartitioner` is used.
    - When using `groupByKey`, a `HashPartitioner` is used by default.
 
-Operations on Pair RDDs that hold to (and propagate) a partitioner:
+### Operations on Pair RDDs that hold to (and propagate) a partitioner:
 
 - `cogroup`
 - `groupWith`
