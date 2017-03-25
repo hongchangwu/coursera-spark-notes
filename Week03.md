@@ -149,3 +149,36 @@ that it does not involve any shufflign over the network at all!
     purchasesPerCust.reduceByKey((v1, v2) => (v1._1 + v2._1, v1._2 + v2._2))
                     .collect()
 ```
+
+**You can figure out whether a shuffle has been planned/executed via:**
+1. The return type of certain transformations, _e.g.,_
+
+  ```scala
+  org.apache.spark.rdd.RDD[(String, Int)] = ShuffledRDD[366]
+  ```
+
+2. Using function `toDebugString` to see its execution plan:
+
+   ```scala
+   partitioned.reduceByKey((v1, v2) => (v1._1 + v2._1, v1._2 + v2._2))
+              .toDebugString
+   res9: String =
+   (8) MapPartitionsRDD[622] at reduceByKey at <console>:49 []
+    |  ShuffledRDD[615] at partitionBy at <console>:48 []
+    |      CachedPartitions: 8; MemorySize: 1754.8 MB; DiskSize: 0.0 B
+   ```
+
+### Operations that _might_ cause a shuffle
+
+- `cogroup`
+- `groupWith`
+- `join`
+- `leftOuterJoin`
+- `rightOuterJoin`
+- `groupByKey`
+- `reduceByKey`
+- `combineByKey`
+- `distinct`
+- `intersection`
+- `repartition`
+- `coalesce`
