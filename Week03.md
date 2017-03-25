@@ -255,7 +255,9 @@ dependencies:
 
 ### Find out the actual dependencies
 
-Use **dependencies** method on RDDs.
+Use the **dependencies** method on RDDs. It returns a sequence of `Dependency`
+objects, which are used by Spark's scheduler to know how the RDD depends on
+other RDDs.
 
 **Narrow dependency objects:**
 - `OneToOneDependency`
@@ -275,3 +277,6 @@ val pairs = wordRdd.map(c => (c, 1))
 // pairs: Seq[org.apache.spark.Dependency[_]] =
 // List(org.apache.spark.ShuffleDependency@4294a23d)
 ```
+
+You can also the **toDebugString** method on RDDs as mentioned before. It
+prints out a visualization of the RDD's lineage.
