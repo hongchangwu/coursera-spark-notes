@@ -89,4 +89,19 @@ val spark = SparkSession
 `DataFrame`s can be created in two ways:
 
 1. From an existing RDD
+   1. From tuples
+
+   ```scala
+   val tupleRDD = ... // Assume RDD[(Int, String, String, String)]
+   val tupleDF = tupleRDD.toDF("id", "name", "city", "country") // column names
+   ```
+
+   2. From case classes
+   ```scala
+   case class Person(id: Int, name: String, city: String)
+   val peopleRDD = ... // Assume RDD[Person]
+    val peopleDF = peopleRDD.toDF
+   ```
+
 2. Reading in a specific **data source** from file
+
