@@ -69,3 +69,13 @@ For example, `groupByKey` first computes per tuple `(k, v)` its partition `p`:
 ```scala
 p = k.hashCode() % numPartitions
 ```
+
+## Range partitioning
+
+Pair RDDs may contain keys that have an _ordering_ defined (e.g. `Int`,
+`Char`, `String`).
+
+For such RDDs, _range partitioning_ may be more efficient. Using a range
+partitioner, keys are partitioned according to:
+1. an _ordering_ for keys
+2. a set of _sorted ranges_ of keys
