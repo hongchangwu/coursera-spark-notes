@@ -104,5 +104,22 @@ Two ways to create RDDs with specific partitionings:
    construct the parent.
 
    **Automatically-set partitioners:**
+   e.g.
    - When using `sortByKey`, a `RangePartitioner` is used.
    - When using `groupByKey`, a `HashPartitioner` is used by default.
+
+Operations on Pair RDDs that hold to (and propagate) a partitioner:
+- `cogroup`
+- `groupWith`
+- `join`
+- `leftOuterJoin`
+- `rightOuterJoin`
+- `groupByKey`
+- `reduceByKey`
+- `foldByKey`
+- `combineByKey`
+- `partitionBy`
+- `sort`
+- `mapValues` (if parent has a partitioner)
+- `flatMapValues` (if parent has a partitioner)
+- `filter` (if parent has a partitioner)
