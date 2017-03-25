@@ -100,8 +100,20 @@ val spark = SparkSession
    ```scala
    case class Person(id: Int, name: String, city: String)
    val peopleRDD = ... // Assume RDD[Person]
-    val peopleDF = peopleRDD.toDF
+   val peopleDF = peopleRDD.toDF
    ```
+
+   3. With explicit schema
 
 2. Reading in a specific **data source** from file
 
+```scala
+// 'spark' is the SparkSession object we created a few slides back
+val df = spark.read.json("examples/src/main/resources/people.json")
+```
+
+Some supported data sources:
+- JSON
+- CSV
+- Parquet
+- JDBC
