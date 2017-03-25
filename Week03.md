@@ -93,4 +93,7 @@ Two ways to create RDDs with specific partitionings:
    val tunedPartitioner = new RangePartitioner(8, pairs)
    val partitioned = paris.partitionBy(tunedPartitioner).persist()
    ```
+   
+   Notice the `persist` call. This is to prevent data being shuffled across
+   the network over and again.
 2. Using transformations that returns RDDs with specific partitions.
