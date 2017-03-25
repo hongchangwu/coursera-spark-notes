@@ -264,3 +264,14 @@ Use **dependencies** method on RDDs.
 
 **Wide dependency objects:**
 - `ShuffleDependency`
+
+Example:
+
+```scala
+val wordRdd = sc.parallelize(largeList)
+val pairs = wordRdd.map(c => (c, 1))
+                   .groupByKey()
+                   .dependencies
+// pairs: Seq[org.apache.spark.Dependency[_]] =
+// List(org.apache.spark.ShuffleDependency@4294a23d)
+```
