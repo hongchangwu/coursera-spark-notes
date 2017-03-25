@@ -10,3 +10,17 @@ satifies conditions from two pair RDDs.
 2. Filter each of the RDD first, and then join them together (**Fastest**)
 3. Get the cartesian product of the two RDDs, filter on keys, and the filter on
    the conditions (**Slowest**)
+
+## Structured vs Unstructured Data
+
+All data isn't equal, structurally. It falls on a spectrum from unstructured
+to structured.
+
+- **Unstructured:**
+  - Log files
+  - Images
+- **Semi-structured:**
+  - JSON
+  - XML
+- **Structured:**
+  - Database tables
