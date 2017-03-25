@@ -131,3 +131,21 @@ Operations on Pair RDDs that hold to (and propagate) a partitioner:
 **All other operations will produce a result without a partitioner.**
 
 ## Optimizing with Partitioners
+
+It is possible to optimize our previous example using range partitioners so
+that it does not involve any shufflign over the network at all!
+
+```scala
+  val pairs = purchasesRdd.map(p => (p.customerId, p.price))
+  val tunedPartitioner = new RangePartitioner(8, pairs)
+
+  va. partitioned = pairs.partitionBy(tunedPartitioner)
+                         .persist()
+                         
+  val purchasesPerCust =
+    partitioned.map(p => (p._1, (1, p._2)))
+
+  val purchasesPerMonth =
+    purchasesPerCust.reduceByKey((v1, v2) => (v1._1 + v2._1, v1._2 + v2._2))
+                    .collect()
+```
