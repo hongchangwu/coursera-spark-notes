@@ -44,3 +44,17 @@ each individual customer over the course of the month.
                 .reduceByKey((v1, v2) => (v1._1 + v2._1, v1._2 + v2._2))
                 .collect()
   ```
+
+## Partitioning
+
+### Partitions
+
+**Properties of partitions:**
+- Partitions never span multiple machines.
+- Each machine in the cluster contains one or more partitions.
+- The number of partitions to use is configurable. By default, it equals to
+  the _total number of cores on all executor nodes._
+
+**Two kinds of partitioning available in Spark:**
+- Hash partitioning
+- Range partitioning
