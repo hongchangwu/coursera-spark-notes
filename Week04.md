@@ -38,9 +38,18 @@ Spark + regular RDDs don't know anything about the **schema** of the data.
   
 ## Spark SQL
 
-Three main goals:
+**Three main goals:**
 1. Support **relational processing** both with Spark programs (on RDDs) and on
    external data sources with a friendly API.
 2. High performance, achieved by using techniques from research in databases.
 3. Easily support new data sources such as semi-structured data on external
    databases.
+   
+**Three main APIs:**
+- SQL literal syntax
+- `DataFrames`
+- `Datasets`
+
+**Two specialized backend components:**
+- **Catalyst**, query optimizer
+- **Tungsten**, off-heap serializer
