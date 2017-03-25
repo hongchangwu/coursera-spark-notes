@@ -59,7 +59,7 @@ each individual customer over the course of the month.
 - Hash partitioning
 - Range partitioning
 
-##  Hash partitioning
+###  Hash partitioning
 
 Hash partitioning attempts to spread data evenly across partitions _based on
 the key._
@@ -70,7 +70,7 @@ For example, `groupByKey` first computes per tuple `(k, v)` its partition `p`:
 p = k.hashCode() % numPartitions
 ```
 
-## Range partitioning
+### Range partitioning
 
 Pair RDDs may contain keys that have an _ordering_ defined (e.g. `Int`,
 `Char`, `String`).
