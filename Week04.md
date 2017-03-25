@@ -60,3 +60,31 @@ Terminologies:
 - A _relation_ is just a table.
 - _Attributes_ are columns.
 - Rows are _records_ or _tuples_.
+
+**DataFrame** is Spark SQL's core abstraction. Conceptually, they are RDDs
+full of records with a **known schema**.
+
+DataFrames are **untyped**!
+
+Transformations on DataFrames are also known as **untyped transformations**.
+
+### SparkSession
+
+To get started using Spark SQL, everything starts with the SparkSession
+
+```scala
+import org.apache.spark.sql.SparkSession
+
+val spark = SparkSession
+  .builder()
+  .appName("My App")
+  //.config("spark.some.config.option", "some-value")
+  .getOrCreate()
+```
+
+### Creating DataFrames
+
+`DataFrame`s can be created in two ways:
+
+1. From an existing RDD
+2. Reading in a specific **data source** from file
