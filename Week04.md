@@ -52,4 +52,11 @@ Spark + regular RDDs don't know anything about the **schema** of the data.
 
 **Two specialized backend components:**
 - **Catalyst**, query optimizer
-- **Tungsten**, off-heap serializer
+- **Tungsten**, off-heap serializeR
+
+### Relational Queries (SQL)
+
+Terminologies:
+- A _relation_ is just a table.
+- _Attributes_ are columns.
+- Rows are _records_ or _tuples_.
