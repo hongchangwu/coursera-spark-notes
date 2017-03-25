@@ -38,6 +38,8 @@ Spark + regular RDDs don't know anything about the **schema** of the data.
   
 ## Spark SQL
 
+### Overview
+
 **Three main goals:**
 1. Support **relational processing** both with Spark programs (on RDDs) and on
    external data sources with a friendly API.
