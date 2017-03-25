@@ -79,3 +79,18 @@ For such RDDs, _range partitioning_ may be more efficient. Using a range
 partitioner, keys are partitioned according to:
 1. an _ordering_ for keys
 2. a set of _sorted ranges_ of keys
+
+### Partitioning Data
+
+Two ways to create RDDs with specific partitionings:
+
+1. Call `partitionBy` on an RDD, providing an explicit `Partitioner`.
+   Example:
+   
+   ```scala
+   val pairs = purchasesRdd.map(p => (p.customerId, p.price))
+
+   val tunedPartitioner = new RangePartitioner(8, pairs)
+   val partitioned = paris.partitionBy(tunedPartitioner).persist()
+   ```
+2. Using transformations that returns RDDs with specific partitions.
