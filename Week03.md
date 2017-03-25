@@ -196,7 +196,7 @@ that it does not involve any shufflign over the network at all!
 
 ### Lineages
 
-Computations on RDDs are represented as a **lineage graph**; a Directed
+Computations on RDDs are represented as a **lineage graph**: a Directed
 Acyclic Graph (DAG) representing the computations done on the RDD.
 
 ### How are RDDs represented?
@@ -215,8 +215,18 @@ dependencies:
 
    **Fast! No shuffle necessary. Optimizations like pipelining possible.**
 
+   Examples:
+   - `map`
+   - `filter`
+   - `union`
+   - `join` with co-partitioned inputs
+
 2. Wide Dependencies
    Each partition of the parent RDD may be depended on by **multiple** child
    partitions. 
 
    **Slow! Requires all or some data to be shuffled over the network.**
+
+   Examples:
+   - `groupByKey`
+   - `join` with inputs not co-partitioned
