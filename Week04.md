@@ -1,5 +1,7 @@
 # Week 04
 
+## Structured vs Unstructured Data
+
 When we perform operations on Spark datasets, there are often many different possible 
 approaches. For example, if we want to count the number of records that
 satifies conditions from two pair RDDs.
@@ -10,8 +12,6 @@ satifies conditions from two pair RDDs.
    the conditions (**Slowest**)
 
 In most cases we have to do the optimizaiton by hand.
-
-## Structured vs Unstructured Data
 
 All data isn't equal, structurally. It falls on a spectrum from unstructured
 to structured.
@@ -25,7 +25,7 @@ to structured.
 - **Structured:**
   - Database tables
 
-## Structured Data vs RDDs
+### Structured Data vs RDDs
 
 Spark + regular RDDs don't know anything about the **schema** of the data.
 
@@ -35,3 +35,5 @@ Spark + regular RDDs don't know anything about the **schema** of the data.
 - **Database/Hive:** 
   - Do **declarative transformations** on data
   - Lots of structure. Lots of optimization opportunities.
+  
+
