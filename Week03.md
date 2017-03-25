@@ -230,3 +230,25 @@ dependencies:
    Examples:
    - `groupByKey`
    - `join` with inputs not co-partitioned
+
+**Transformations with narrow dependencies:**
+- `map`
+- `mapValues`
+- `flatMap`
+- `filter`
+- `mapPartitions`
+- `mapPartitionsWithIndex`
+
+**Transformations with wide dependencies:** (_might cause a shuffle_)
+- `cogroup`
+- `groupWith`
+- `join`
+- `leftOuterJoin`
+- `rightOuterJoin`
+- `groupByKey`
+- `reduceByKey`
+- `combineByKey`
+- `distinct`
+- `intersection`
+- `repartition`
+- `coalesce`
