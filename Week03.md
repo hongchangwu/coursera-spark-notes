@@ -97,3 +97,12 @@ Two ways to create RDDs with specific partitionings:
    Notice the `persist` call. This is to prevent data being shuffled across
    the network over and again.
 2. Using transformations that returns RDDs with specific partitions.
+
+   **Partitioner from parent RDD:**
+   Pair RDDs that are the rsult of a transformation of a _partitioned_ Pair
+   RDD typically is configured to use the has partitioner that was used to
+   construct the parent.
+
+   **Automatically-set partitioners:**
+   - When using `sortByKey`, a `RangePartitioner` is used.
+   - When using `groupByKey`, a `HashPartitioner` is used by default.
