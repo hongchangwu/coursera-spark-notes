@@ -182,3 +182,12 @@ that it does not involve any shufflign over the network at all!
 - `intersection`
 - `repartition`
 - `coalesce`
+
+**2 Examples to avoid shuffling by partitioning:**
+1. `reduceByKey` running on a pre-partitoined RDD will cause the values to be
+   computed _locally_, requiring only the final reduced value to be sent from
+   the worker to the driver.
+2. `join` called on two RDDs that are pre-partitioned with the same
+   partitioner and cached on the same machine will cause the `join` to be
+   computed _locally_, with no shuffling across the network.
+   the network
