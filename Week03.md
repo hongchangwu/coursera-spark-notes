@@ -191,3 +191,10 @@ that it does not involve any shufflign over the network at all!
    partitioner and cached on the same machine will cause the `join` to be
    computed _locally_, with no shuffling across the network.
    the network
+
+## Wide vs Narrow Dependencies
+
+### Lineages
+
+Computations on RDDs are represented as a **lineage graph**; a Directed
+Acyclic Graph (DAG) representing the computations done on the RDD.
