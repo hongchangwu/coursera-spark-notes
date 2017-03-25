@@ -25,6 +25,7 @@ each individual customer over the course of the month.
 
 - **Grouping**: `groupByKey` moves a lot of data from one node to another to
   ge "grouped" with its key. Doing so is called "shuffling" and is expensive.
+
   ```scala
   val purchasesRdd: RDD[CFFPurchase] = sc.textFile(...)
 
@@ -34,8 +35,10 @@ each individual customer over the course of the month.
                 .map(p -> (p._1, (p._2.size, p._2.sum)))
                 .collect()
   ```
+
 - **Reducing**: `reduceByKey` reduces dataset locally first, therefore the
   amount of data sent over the network during the shuffle is greatly reduced.
+
   ```scala
   val purchasesRdd: RDD[CFFPurchase] = sc.textFile(...)
 
@@ -126,3 +129,5 @@ Operations on Pair RDDs that hold to (and propagate) a partitioner:
 - `filter` (if parent has a partitioner)
 
 **All other operations will produce a result without a partitioner.**
+
+## Optimizing with Partitioners
