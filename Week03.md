@@ -198,3 +198,25 @@ that it does not involve any shufflign over the network at all!
 
 Computations on RDDs are represented as a **lineage graph**; a Directed
 Acyclic Graph (DAG) representing the computations done on the RDD.
+
+### How are RDDs represented?
+
+RDDs are represented as:
+- **Partitions**. Atomic pieces of the dataset. One or many per compute node.
+- **Dependencies**. Models relationship between this RDD and its partitions
+  with the RDD(s) it was derived from.
+
+**Transformations cause shuffled**. Transformations can have two kinds of
+dependencies:
+
+1. Narrow Dependencies
+   Each partition of the parent RDD is used by at most one partition of the
+   child RDD.
+
+   **Fast! No shuffle necessary. Optimizations like pipelining possible.**
+
+2. Wide Dependencies
+   Each partition of the parent RDD may be depended on by **multiple** child
+   partitions. 
+
+   **Slow! Requires all or some data to be shuffled over the network.**
