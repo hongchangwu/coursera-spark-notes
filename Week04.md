@@ -117,3 +117,24 @@ Some supported data sources:
 - CSV
 - Parquet
 - JDBC
+
+### SQL Literals
+
+```scala
+// Register the DataFrame as a SQL temporary view
+peopleDF.createOrReplaceTempView("people")
+// This essentially gives a name to our DataFrame in SQL
+// so we can refer to it in an SQL FROM statement
+
+// SQL literals can be passed to Spark SQL's sql method
+val adultsDF
+  = spark.sql("SELECT * FROM people WHERE age > 17")
+```
+
+- Supported Spark SQL syntax:
+  https://docs.datastax.com/en/datastax_enterprise/4.6/datastax_enterprise/spark/sparkSqlSupportedSyntax.html
+- For a HiveQL cheatseet:
+  https://hortonworks.com/blog/hive-cheat-sheet-for-sql-users/
+- For an updated list of supported Hive features in Spark SQL, the official
+  Spark SQL docs enumerate:
+  https://spark.apache.org/docs/latest/sql-programming-guide-html#supported-hive-features
