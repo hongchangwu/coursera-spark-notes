@@ -336,3 +336,22 @@ On `Dataset`s, typed operations act on `TypedColumn`. To create a
 ```scala
 $"price".as[Double] // now a TypedColumn
 ```
+
+### Transformations on Datasets
+
+The `Dataset` API includes both **untyped** and **typed** transformations.
+
+**Common typed transformations:**
+
+- `map[U](f: T => U): Dataset[U]`
+- `flatMap[U](f: T => TraversableOnce[U]): Dataset[U]`
+- `filter(pred: T => Boolean): Dataset[T]`
+- `distinct(): Dataset[T]`
+- `groupByKey[K](f: T => K): KeyValueGroupedDataset[K, T]`
+- `coalesce(numPartitions: Int): Dataset[T]`
+- `repartition(numPartitions: Int): Dataset[T]`
+
+Some `KeyValueGroupedDataset` Aggregation Operations:
+
+- `reduceGroups(f: (V, V) => V): Dataset[(K, V)]`
+- `agg[U](col: TypedColumn[V, U]): Dataset[(K, U])`
