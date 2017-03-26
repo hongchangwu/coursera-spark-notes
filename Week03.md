@@ -278,5 +278,5 @@ val pairs = wordRdd.map(c => (c, 1))
 // List(org.apache.spark.ShuffleDependency@4294a23d)
 ```
 
-You can also the **toDebugString** method on RDDs as mentioned before. It
+You can also the **`toDebugString`** method on RDDs as mentioned before. It
 prints out a visualization of the RDD's lineage.
