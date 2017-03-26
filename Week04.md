@@ -133,8 +133,8 @@ val adultsDF
 
 - Supported Spark SQL syntax:
   https://docs.datastax.com/en/datastax_enterprise/4.6/datastax_enterprise/spark/sparkSqlSupportedSyntax.html
-- For a HiveQL cheatseet:
+- For a HiveQL cheat sheet:
   https://hortonworks.com/blog/hive-cheat-sheet-for-sql-users/
 - For an updated list of supported Hive features in Spark SQL, the official
   Spark SQL docs enumerate:
-  https://spark.apache.org/docs/latest/sql-programming-guide-html#supported-hive-features
+  https://spark.apache.org/docs/latest/sql-programming-guide.html#supported-hive-features
