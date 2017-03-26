@@ -141,6 +141,8 @@ val adultsDF
 
 ## DataFrames
 
+### Overview
+
 DataFrames are 
 - A relational API over Spark's RDDs
 - Able to be automatically aggresively optimzied
@@ -157,3 +159,37 @@ DataFrames are
 Helper methods:
 - **show()** pretty-prints DataFrame in tabular form. Shows first 20 elements.
 - **printSchema()** prints the schema of your DataFrame in a tree format.
+
+### Specifying Columns
+
+1. Using $-notation:
+
+   ```scala
+   // requires import spark.implicits._
+   df.filter($"age" > 18)
+   ```
+
+2. Referring to the DataFrame
+
+   ```scala
+   df.filter(df("age") > 18)
+   ``` 
+
+3. Using SQL query string
+
+   ```scala
+   df.filter("age > 18")
+   ```
+
+**Example:** Rewrite the example SQL query from previous session using
+DataFrame API.
+
+```scala
+case class Employee(id: Int, fname: String, lname: String, age: Int, city:
+String)
+val employeeDF = sc.parallelize(...).toDF
+
+val sydneyEmployeesDF = employeeDF.select("id", "lname")
+                                  .where("city == 'Sydney'")
+                                  .orderBy("id")
+```
