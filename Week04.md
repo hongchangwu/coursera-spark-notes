@@ -54,7 +54,7 @@ Spark + regular RDDs don't know anything about the **schema** of the data.
 
 **Two specialized backend components:**
 - **Catalyst**, query optimizer
-- **Tungsten**, off-heap serializeR
+- **Tungsten**, off-heap serializer
 
 ### Relational Queries (SQL)
 
@@ -256,3 +256,23 @@ df1.join(df2, $"df1.id" === $"df2.id")
 
 df1.join(df2, $"df1.id" === $"df2.id", "right_outer")
 ```
+
+### Optimizations
+
+**Catalyst:** Spark SQL's query optimizer
+
+Catalyst compiles Spark SQL programs down to an RDD. Having full knowledge about the 
+data and the computations make it possible to do optmizations like:
+
+- **Reordering operations**
+- **Reduce the amount of data we must read**
+- **Pruning unneeded partitioning**
+
+**Tungsten:** Spark SQL's off-heap data encoder
+
+Since our data types are restricted to Spark SQL data types, Tungsten can
+provide:
+
+- highly-specialized data encoders
+- **column-based**
+- off-heap (free from garbage colleciton overhead!)
