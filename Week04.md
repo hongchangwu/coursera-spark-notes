@@ -379,6 +379,27 @@ val myAgg = new Aggregator[IN, BUF, OUT] {
 }.toColumn
 ```
 
+**Example:** emulating `reduceByKey` with an `Aggregator`
+
+```scala
+val keyValues = 
+  List((3, "Me"), (1, "Thi"), (2, "Se"), (3, "ssa"), (1, "sIsA"), (3, "ge:"), (3, "-)"), (2, "cre"), (2, "t"))
+
+val keyValueDS = keyValues.toDS
+
+val strConcat = new Aggregator[(Int, String), String, String]{
+  def zero: String = ""
+  def reduce(b: String, a: (Int, String)): String = b + a._2
+  def merge(b1: String, b2: String): String = b1 + b2
+  def finish(r: String): String = r
+  override def bufferEncoder: Encoder[String] = Encoders.STRING
+  override def outputEncoder: Encoder[String] = Encoders.STRING
+}.toColumn
+
+keyValuesDS.groupByKey(pair => pair._1)
+           .agg(strConcat.as[String])
+```
+
 ### Encoders
 
 `Encoder`s are what convert your data between JVM objects and Spark SQL's
