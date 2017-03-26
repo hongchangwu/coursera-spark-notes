@@ -244,3 +244,15 @@ df.groupBy($"attribute1")
 - `first(): Row / head(): Row`
 - `show(): Unit`
 - `take(n: Int): Array[Row]`
+
+### Joins on DataFrames
+
+Types of joins available: `inner`, `outer`, `left_outer`, `right_outer`, `leftsemi`
+
+**Examples:**
+
+```scala
+df1.join(df2, $"df1.id" === $"df2.id")
+
+df1.join(df2, $"df1.id" === $"df2.id", "right_outer")
+```
