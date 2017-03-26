@@ -421,5 +421,7 @@ Two ways to introduce encoders:
 
 ### Limitations of Datasets
 
-**Catalyst can't optimize all operations**, e.g. it can optimize relational
+- **Catalyst Can't Optimize All Operations**, e.g. it can optimize relational
 filter operations, but cannot optimize functional filter operations.
+- **Limited Data Types**
+- **Requires Semi-Structured/Structured Data**
