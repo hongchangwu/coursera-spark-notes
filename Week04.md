@@ -327,3 +327,12 @@ myRDD.toDS // requires import spark.implicits._
 ```scala
 List("yay", "ohnoes", "hooray!").toDS // requires import spark.implicits._
 ```
+
+### Typed Columns
+
+On `Dataset`s, typed operations act on `TypedColumn`. To create a
+`TypedColumn`:
+
+```scala
+$"price".as[Double] // now a TypedColumn
+```
