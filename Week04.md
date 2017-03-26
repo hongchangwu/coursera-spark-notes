@@ -401,3 +401,20 @@ Two ways to introduce encoders:
 - `reduce(f: (T, T) => T): T`
 - `show(): Unit`
 - `take(n: Int): Array[T]`
+
+## Choose between Datasets vs DataFrames vs RDDs
+
+**Use Datasets when...**
+- you have structured/semi-structured data
+- you want type safety
+- you need to work with functional APIs
+- you need good performance, but it doesn't have to be the best
+
+**Use DataFrames when...**
+- you have structured/semi-structured data
+- you want the best possible performance, automatically optimized for you
+
+**Use RDDs when...**
+- you have unstructured data
+- you need to fine-tune and manage low-level details of RDD computations
+- you have complex data types that cannot be serialized with `Encoder`s
