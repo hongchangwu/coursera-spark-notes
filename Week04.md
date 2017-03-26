@@ -277,7 +277,7 @@ provide:
 - **column-based**
 - off-heap (free from garbage colleciton overhead!)
 
-### Limitations
+### Limitations of DataFrames
 
 - Untyped!
 - Limited Data Types
@@ -402,7 +402,7 @@ Two ways to introduce encoders:
 - `show(): Unit`
 - `take(n: Int): Array[T]`
 
-## Choose between Datasets vs DataFrames vs RDDs
+### Choose between Datasets vs DataFrames vs RDDs
 
 **Use Datasets when...**
 - you have structured/semi-structured data
@@ -418,3 +418,8 @@ Two ways to introduce encoders:
 - you have unstructured data
 - you need to fine-tune and manage low-level details of RDD computations
 - you have complex data types that cannot be serialized with `Encoder`s
+
+### Limitations of Datasets
+
+**Catalyst can't optimize all operations**, e.g. it can optimize relational
+filter operations, but cannot optimize functional filter operations.
