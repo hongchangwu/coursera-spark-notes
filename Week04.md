@@ -294,3 +294,10 @@ type DataFrame = Dataset[Row]
 - `Datasets` can be thought of as **typed** distributed collections of data.
 - `Dataset` API unifies the `DataFrame` and `RDD` APIs.
 - `Datasets` requires structured/semi-structured data.
+
+**Example:**
+
+```scala
+listingsDS.groupByKey(l => l.zip)        // looks like groupByKey on RDD
+          .agg(avg($"price").as[Double]) // looks like DataFrame operators
+```
