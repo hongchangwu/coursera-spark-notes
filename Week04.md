@@ -276,3 +276,9 @@ provide:
 - highly-specialized data encoders
 - **column-based**
 - off-heap (free from garbage colleciton overhead!)
+
+### Limitations
+
+- Untyped!
+- Limited Data Types
+- Requires Semi-Structured/Structured Data
