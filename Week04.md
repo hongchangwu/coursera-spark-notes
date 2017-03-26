@@ -384,3 +384,20 @@ val myAgg = new Aggregator[IN, BUF, OUT] {
 `Encoder`s are what convert your data between JVM objects and Spark SQL's
 specialized internal (tabular) representation. **They are required by all
 `Dataset`s!**
+
+Two ways to introduce encoders:
+- **Automatically** (generally the case) via implicits from a `SparkSession`,
+  `import spark.implicits._`
+- **Explicitly** via `org.apache.spark.sql.Encoder`, which contains a large
+  selection of methods for creating `Encoder`s from Scala primitive types and
+  `Product`s.
+
+### Common Dataset Actions
+
+- `collect(): Array[T]`
+- `count(): Long`
+- `first(): T / head(): T`
+- `foreach(f: T => Unit): Unit`
+- `reduce(f: (T, T) => T): T`
+- `show(): Unit`
+- `take(n: Int): Array[T]`
