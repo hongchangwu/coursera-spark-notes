@@ -70,11 +70,11 @@ programming model.
 By default, RDDs are recomputed each time you run an action on them. But Spark
 allows you to contorl what is cached in memory -  use `persist()` or `cache()`.
 
-**cache**
+- **`cache`**
 Shorthand for using the default storage level, which is in memory only as
 regular Java objects.
 
-**persist**
+- **`persist`**
 Persistence can be customized with this method. Pass the storage level you
 like as a parameter.
 
