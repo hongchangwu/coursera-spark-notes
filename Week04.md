@@ -154,4 +154,6 @@ DataFrames are
 - `groupBy`
 - `join`
 
-**show()** pretty-prints DataFrame in tabular form. Shows first 20 elements.
+Helper methods:
+- **show()** pretty-prints DataFrame in tabular form. Shows first 20 elements.
+- **printSchema()** prints the schema of your DataFrame in a tree format.
