@@ -355,3 +355,5 @@ Some `KeyValueGroupedDataset` Aggregation Operations:
 
 - `reduceGroups(f: (V, V) => V): Dataset[(K, V)]`
 - `agg[U](col: TypedColumn[V, U]): Dataset[(K, U])`
+- `mapGroups[U](f: (K, Iterator[V]) => U): Dataset[U]`
+- `flatMapGroups[U](f: (K, Iterator[V]) => TraversableOnce[U]): Dataset[U]`
