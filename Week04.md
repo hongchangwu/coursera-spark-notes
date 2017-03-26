@@ -200,3 +200,13 @@ For grouping & aggregating, Spark SQL provides:
 - a `groupBy` function which returns a `RelationalGroupedDataset`
 - which has several standard aggregation funcitons defined on it like `count`,
   `sum`, `max`, `min`, and `avg`
+
+**Examples:**
+
+```scala
+df.groupBy($"attribute1")
+  .agg(sum($"attribute2"))
+
+df.groupBy($"attribute1")
+  .count($"attribute2")
+```
