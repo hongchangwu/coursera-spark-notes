@@ -358,6 +358,19 @@ Some `KeyValueGroupedDataset` Aggregation Operations:
 - `mapGroups[U](f: (K, Iterator[V]) => U): Dataset[U]`
 - `flatMapGroups[U](f: (K, Iterator[V]) => TraversableOnce[U]): Dataset[U]`
 
+**Example:**  emulate `reduceByKey` using typed transformations:
+
+```scala
+val keyValues = 
+  List((3, "Me"), (1, "Thi"), (2, "Se"), (3, "ssa"), (1, "sIsA"), (3, "ge:"), (3, "-)"), (2, "cre"), (2, "t"))
+
+val keyValuesDS = keyValues.toDS
+
+keyValuesDS.groupByKey(p => p._1)
+           .mapGroups((k, vs) => (k, vs.foldLeft("")((acc, p) => acc + p._2)))
+           .sort($"_1").show()
+```
+
 ### Aggregators
 
 ```scala
@@ -379,13 +392,13 @@ val myAgg = new Aggregator[IN, BUF, OUT] {
 }.toColumn
 ```
 
-**Example:** emulating `reduceByKey` with an `Aggregator`
+**Example:** emulate `reduceByKey` with an `Aggregator`
 
 ```scala
 val keyValues = 
   List((3, "Me"), (1, "Thi"), (2, "Se"), (3, "ssa"), (1, "sIsA"), (3, "ge:"), (3, "-)"), (2, "cre"), (2, "t"))
 
-val keyValueDS = keyValues.toDS
+val keyValuesDS = keyValues.toDS
 
 val strConcat = new Aggregator[(Int, String), String, String]{
   def zero: String = ""
