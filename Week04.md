@@ -378,3 +378,9 @@ val myAgg = new Aggregator[IN, BUF, OUT] {
   def finish(b: BUF): OUT = ...           // Return the final result
 }.toColumn
 ```
+
+### Encoders
+
+`Encoder`s are what convert your data between JVM objects and Spark SQL's
+specialized internal (tabular) representation. **They are required by all
+`Dataset`s!**
