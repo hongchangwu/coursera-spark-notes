@@ -216,3 +216,13 @@ df.groupBy($"attribute1")
   http://spark.apache.org/docs/latest/api/scala/index.html#org.apache.spark.sql.RelationalGroupedDataset
 - Methods within `agg`:
   http://spark.apache.org/docs/latest/api/scala/index.html#org.apache.spark.sql.functions$
+
+### Clearing Data
+
+**Dropping records with unwanted values:**
+- **`drop()`** drops rows that contain `null` or `NaN` values in **any** column
+  and returns a new `DataFrame`.
+- **`drop("all")`** drops rows that contain `null` or `NaN` values in **all**
+  columns and retruns a new `DataFrame`.
+- **`drop(Array("id", "name"))`** drops rows that contain `null` or `NaN`
+  values in the **specified** columns and returns a new `DataFrame`.
