@@ -193,3 +193,10 @@ val sydneyEmployeesDF = employeeDF.select("id", "lname")
                                   .where("city == 'Sydney'")
                                   .orderBy("id")
 ```
+
+### Grouping and Aggregating
+
+For grouping & aggregating, Spark SQL provides:
+- a `groupBy` function which returns a `RelationalGroupedDataset`
+- which has several standard aggregation funcitons defined on it like `count`,
+  `sum`, `max`, `min`, and `avg`
