@@ -1,4 +1,4 @@
-# Week 04
+#  Week 04
 
 ## Structured vs Unstructured Data
 
@@ -157,8 +157,8 @@ DataFrames are
 - `join`
 
 Helper methods:
-- **show()** pretty-prints DataFrame in tabular form. Shows first 20 elements.
-- **printSchema()** prints the schema of your DataFrame in a tree format.
+- **`show()`** pretty-prints DataFrame in tabular form. Shows first 20 elements.
+- **`printSchema()`** prints the schema of your DataFrame in a tree format.
 
 ### Specifying Columns
 
