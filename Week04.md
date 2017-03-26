@@ -145,3 +145,13 @@ DataFrames are
 - A relational API over Spark's RDDs
 - Able to be automatically aggresively optimzied
 - Untyped!
+
+**DataFrame API:** Similar-looking to SQL. Example methods include:
+- `select`
+- `where`
+- `limit`
+- `orderBy`
+- `groupBy`
+- `join`
+
+**show()** pretty-prints DataFrame in tabular form. Shows first 20 elements.
