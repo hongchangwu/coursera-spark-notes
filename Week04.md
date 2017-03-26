@@ -282,3 +282,15 @@ provide:
 - Untyped!
 - Limited Data Types
 - Requires Semi-Structured/Structured Data
+
+## Datasets
+
+`DataFrames` are actually `Datasets`!
+
+```scala
+type DataFrame = Dataset[Row]
+```
+
+- `Datasets` can be thought of as **typed** distributed collections of data.
+- `Dataset` API unifies the `DataFrame` and `RDD` APIs.
+- `Datasets` requires structured/semi-structured data.
