@@ -357,3 +357,13 @@ Some `KeyValueGroupedDataset` Aggregation Operations:
 - `agg[U](col: TypedColumn[V, U]): Dataset[(K, U])`
 - `mapGroups[U](f: (K, Iterator[V]) => U): Dataset[U]`
 - `flatMapGroups[U](f: (K, Iterator[V]) => TraversableOnce[U]): Dataset[U]`
+
+### Aggregators
+
+```scala
+class Aggregator[-IN, BUF, OUT]
+```
+
+- **`IN`** is the input to the aggregator.
+- **`BUF`** is the intermediate type during aggregation.
+- **`OUT`** is the type of the output of the aggregation.
