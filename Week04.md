@@ -304,8 +304,26 @@ listingsDS.groupByKey(l => l.zip)        // looks like groupByKey on RDD
 
 ### Creating Datasets
 
+**From a DataFrame**
+
 ```scala
 myDF.toDS // requires import spark.implicits._
+```
 
+**From a file**
+
+```scala
 val myDS = spark.read.json("people.json").as[Person]
+```
+
+**From an RDD**
+
+```scala
+myRDD.toDS // requires import spark.implicits._
+```
+
+**From common Scala types**
+
+```scala
+List("yay", "ohnoes", "hooray!").toDS // requires import spark.implicits._
 ```
