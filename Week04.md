@@ -262,7 +262,7 @@ df1.join(df2, $"df1.id" === $"df2.id", "right_outer")
 **Catalyst:** Spark SQL's query optimizer
 
 Catalyst compiles Spark SQL programs down to an RDD. Having full knowledge about the 
-data and the computations make it possible to do optmizations like:
+data and the computations makes it possible to do optmizations like:
 
 - **Reordering operations**
 - **Reduce the amount of data we must read**
