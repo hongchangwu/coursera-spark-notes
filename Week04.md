@@ -301,3 +301,11 @@ type DataFrame = Dataset[Row]
 listingsDS.groupByKey(l => l.zip)        // looks like groupByKey on RDD
           .agg(avg($"price").as[Double]) // looks like DataFrame operators
 ```
+
+### Creating Datasets
+
+```scala
+myDF.toDS // requires import spark.implicits._
+
+val myDS = spark.read.json("people.json").as[Person]
+```
