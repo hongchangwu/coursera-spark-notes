@@ -210,3 +210,9 @@ df.groupBy($"attribute1")
 df.groupBy($"attribute1")
   .count($"attribute2")
 ```
+
+**References:**
+- `RelationalGroupedDataSet`:
+  http://spark.apache.org/docs/latest/api/scala/index.html#org.apache.spark.sql.RelationalGroupedDataset
+- Methods within `agg`:
+  http://spark.apache.org/docs/latest/api/scala/index.html#org.apache.spark.sql.functions$
