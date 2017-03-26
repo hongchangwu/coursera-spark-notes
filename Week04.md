@@ -138,3 +138,10 @@ val adultsDF
 - For an updated list of supported Hive features in Spark SQL, the official
   Spark SQL docs enumerate:
   https://spark.apache.org/docs/latest/sql-programming-guide.html#supported-hive-features
+
+## DataFrames
+
+DataFrames are 
+- A relational API over Spark's RDDs
+- Able to be automatically aggresively optimzied
+- Untyped!
