@@ -367,3 +367,14 @@ class Aggregator[-IN, BUF, OUT]
 - **`IN`** is the input to the aggregator.
 - **`BUF`** is the intermediate type during aggregation.
 - **`OUT`** is the type of the output of the aggregation.
+
+To define a custom `Aggregator`:
+
+```scala
+val myAgg = new Aggregator[IN, BUF, OUT] {
+  def zero: BUF = ...                     // The initial value
+  def reduce(b: BUF, a: IN): BUF = ...    // Add an element to the running total
+  def merge(b1: BUF, b2: BUF): BUF = ...  // Merge intermediate values
+  def finish(b: BUF): OUT = ...           // Return the final result
+}.toColumn
+```
