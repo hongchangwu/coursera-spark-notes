@@ -226,3 +226,13 @@ df.groupBy($"attribute1")
   columns and retruns a new `DataFrame`.
 - **`drop(Array("id", "name"))`** drops rows that contain `null` or `NaN`
   values in the **specified** columns and returns a new `DataFrame`.
+
+**Replacing unwanted values:**
+- **`fill(0)`** replaces all occurrences of `null` or `NaN` in **numeric
+  columns** with **specified value** and returns a new `DataFrame`.
+- **`fill(Map("minBalance" -> 0))`** replaces all occurrences of `null` or
+  `NaN` in **specified column** with **specified value** and returns a new
+  `DataFrame`.
+- **`replace(Array("id"), Map(1234 -> 8923))`** replaces **specified value**
+  in **sepcified column** with **specified replacement value** and returns a
+  new `DataFrame`.
