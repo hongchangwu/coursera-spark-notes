@@ -236,3 +236,11 @@ df.groupBy($"attribute1")
 - **`replace(Array("id"), Map(1234 -> 8923))`** replaces **specified value**
   in **sepcified column** with **specified replacement value** and returns a
   new `DataFrame`.
+
+### Common Actions on DataFrames
+
+- `collect(): Array[Row]`
+- `count(): Long`
+- `first(): Row / head(): Row`
+- `show(): Unit`
+- `take(n: Int): Array[Row]`
