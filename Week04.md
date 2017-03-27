@@ -49,8 +49,8 @@ Spark + regular RDDs don't know anything about the **schema** of the data.
    
 **Three main APIs:**
 - SQL literal syntax
-- `DataFrames`
-- `Datasets`
+- `DataFrame`s
+- `Dataset`s
 
 **Two specialized backend components:**
 - **Catalyst**, query optimizer
@@ -285,15 +285,15 @@ provide:
 
 ## Datasets
 
-`DataFrames` are actually `Datasets`!
+`DataFrame`s are actually `Dataset`s!
 
 ```scala
 type DataFrame = Dataset[Row]
 ```
 
-- `Datasets` can be thought of as **typed** distributed collections of data.
+- `Dataset`s can be thought of as **typed** distributed collections of data.
 - `Dataset` API unifies the `DataFrame` and `RDD` APIs.
-- `Datasets` requires structured/semi-structured data.
+- `Dataset`s requires structured/semi-structured data.
 
 **Example:**
 
