@@ -84,10 +84,10 @@ Spark's RDDs are very unlike Scala Collections.
 
 ## Topology
 
-**Driver Program**
+- **Driver Program**
 Runs the main program. Holds the Spark Context. Creates RDDs.
 
-**Worker Node**
+- **Worker Node**
 Executes the actual computations.
 
 They communicate with each other via a Cluster Manager (e.g. YARN/Meos).
